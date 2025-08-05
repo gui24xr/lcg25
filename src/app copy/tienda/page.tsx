@@ -1,4 +1,4 @@
-import { DefaultComponentContainer } from "@/components";
+import { DefaultComponent } from "@/components";
 
 export const metadata = {
   title: "Juan Pérez - Artista Oficial",
@@ -14,24 +14,24 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default function TiendaPage() {
   return (
     <>
       <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal1" />
+        <DefaultComponent content="Tienda1" />
       </section>
       
       <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal2" />
+        <DefaultComponent content="Tienda2" />
       </section>
       
       <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal3" />
+        <DefaultComponent content="Tienda3" />
       </section>
       
       <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal4" />
+        <DefaultComponent content="Tienda4" />
       </section>
     </>
   );
-}
+} 
