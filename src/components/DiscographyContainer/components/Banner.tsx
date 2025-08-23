@@ -3,7 +3,13 @@
 
 import { Button, Space, Typography } from 'antd'
 import { PlayCircleOutlined, DownOutlined } from '@ant-design/icons'
+import { Merriweather } from 'next/font/google'
 
+const merriweather = Merriweather({
+    weight: ['400', '700'],
+    subsets: ['latin'],
+    display: 'swap',
+})
 
 const { Title, Paragraph } = Typography
 
@@ -44,7 +50,7 @@ export default function Banner({
           {/* Title */}
           <Title
             level={1}
-            className="!text-white !mb-4 !text-5xl md:!text-7xl font-bold tracking-wider"
+            className={`!text-white !mb-4 !text-5xl md:!text-7xl font-bold tracking-wider ${merriweather.className}`}
             style={{
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
               margin: 0

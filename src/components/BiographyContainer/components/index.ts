@@ -1,3 +1,4 @@
+import BiographyBanner from "./BiographyBanner";
 import BiographyCard from "./BiographyCard";
 
-export { BiographyCard };
+export { BiographyBanner, BiographyCard };

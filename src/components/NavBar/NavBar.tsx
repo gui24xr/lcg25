@@ -3,6 +3,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { Bebas_Neue } from 'next/font/google';
+const bebas_neue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: ['400'],  
+  display: 'swap',
+  
+}); 
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,15 +35,15 @@ export default function Navbar() {
       special: false
     },
     {
-      href: "/images",
-      label: "Fotos",
-      pathname: "/images",
+      href: "/galeria",
+      label: "Galeria",
+      pathname: "/galeria",
       special: false
     },
-    {
-      href: "/videos",
-      label: "Videos",
-      pathname: "/videos",
+      {
+      href: "/noticias",
+      label: "Noticias",
+      pathname: "/noticias",
       special: false
     },
     {
@@ -60,12 +67,12 @@ export default function Navbar() {
   ]
 
   const getLinkClasses = (link) => {
-    const baseClasses = "px-3 py-2 text-sm font-medium transition-colors"
+    const baseClasses = `${bebas_neue.className} shadow-lg px-3 py-2 text-2xl font-medium transition-colors`
     const isActive = pathname === link.pathname
     
     // Estilos especiales para conciertos
     if (link.special === "concerts") {
-      return `${baseClasses} font-semibold ${
+      return `${baseClasses} ${bebas_neue.className} font-semibold ${
         isActive 
           ? "text-yellow-300 border-b-2 border-yellow-400" 
           : "text-yellow-400 hover:text-yellow-300"
@@ -74,7 +81,7 @@ export default function Navbar() {
     
     // Estilos especiales para tienda
     if (link.special === "store") {
-      return `${baseClasses} font-bold ${
+      return `${baseClasses} ${bebas_neue.className} font-bold ${
         isActive 
           ? "text-green-300 border-b-2 border-green-400" 
           : "text-green-400 hover:text-green-300"
@@ -82,16 +89,16 @@ export default function Navbar() {
     }
     
     // Estilos normales para el resto
-    const fontWeight = link.href === "/" ? "font-bold" : ""
+    const fontWeight = link.href === "/" ? `${bebas_neue.className} font-bold` : ""
     return `${baseClasses} ${fontWeight} ${
       isActive 
-        ? "text-white border-b-2 border-white" 
-        : "text-gray-300 hover:text-white"
+        ? "text-white border-b-2 border-white shadow-lg" 
+        : "text-gray-300 hover:text-white shadow-lg"
     }`
   }
 
   const getMobileLinkClasses = (link) => {
-    const baseClasses = "block px-3 py-2 text-base font-medium transition-colors"
+    const baseClasses = `${bebas_neue.className} block px-3 py-2 text-base font-medium transition-colors`
     const isActive = pathname === link.pathname
     
     return `${baseClasses} ${
@@ -102,16 +109,18 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm border-b border-gray-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className=" bg-transparent ">
+      <div className=" w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
           <Link 
             href="/" 
-            className="text-blue-500 font-bold text-xl hover:text-gray-300 transition-colors"
+              className={`${bebas_neue.className} space-x-2 text-white shadow-lg font-bold text-3xl font-semibold hover:text-gray-300 transition-colors`}
           >
-            Luis Carlos Gago
+            <span className='text-green-600'>Luis</span>
+            <span className='text-white'>Carlos</span>
+            <span className='text-red-500'>Gago</span>
           </Link>
             
           {/* Desktop Menu */}

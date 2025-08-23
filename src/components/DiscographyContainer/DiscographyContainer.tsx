@@ -1,21 +1,46 @@
 import DataService from "@/lib/data";
-import { AlbumsList, Banner, DiscografiaBanner } from "./components";
+import { AlbumCard, AlbumsList, LastReleasesCarousel, SectionBanner } from "./components";
 
 export default async function DiscographyContainer() {
-    
-    const albums = await DataService.getAlbums();
 
-    return (
-      <div className="bg-white min-h-screen px-32 mx-auto flex flex-col items-center justify-center text-center px-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-8">
-          Discografia
-        </h2>
-        <div className="w-full">    
-            <DiscografiaBanner />
+  const spotifyData = await DataService.getSpotifyData();
+
+  console.log('spotifyData', spotifyData);
+  const albums = await DataService.getAlbums();
+
+  return (
+    <div>
+      <section>
+        <div className="w-full">
+          <SectionBanner
+            title="DISCOGRAFÍA"
+            imageUrl="/images/11.jpg"
+            imgAlt="Fondo discografía"
+          />
         </div>
-        <section className="w-full">
-            <AlbumsList albums={albums} />
-        </section>
-      </div>
-    )
-  }
+      </section>
+
+      <section>
+        <div className="w-full bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="py-8">
+              <div className="flex flex-col gap-4 text-black">
+                <div>
+                  <h1>Discografia</h1>
+                </div>
+                <div className="grid grid-cols-1  lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+                  {albums.map((album) => {
+                    return <AlbumCard album={album} />
+                  })}
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+

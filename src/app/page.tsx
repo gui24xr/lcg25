@@ -1,4 +1,5 @@
-import { DefaultComponentContainer } from "@/components";
+import { HomeContainer } from "@/components";
+import DataService from "@/lib/data";
 
 export const metadata = {
   title: "Juan Pérez - Artista Oficial",
@@ -14,24 +15,14 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const sanityData = await DataService.getSanityData();
+
+  console.log('sanityData', sanityData);
+
   return (
-    <>
-      <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal1" />
-      </section>
-      
-      <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal2" />
-      </section>
-      
-      <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal3" />
-      </section>
-      
-      <section className="min-h-screen flex items-center justify-center">
-        <DefaultComponentContainer content="Principal4" />
-      </section>
-    </>
+    <div className="bg-white">
+            <HomeContainer/>
+        </div>
   );
 }
