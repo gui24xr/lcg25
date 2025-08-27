@@ -3,14 +3,14 @@ import { DefaultComponentContainer, NewsLetterContainer, WelcomeContainer, Video
 export default function HomeContainer() {
     return (
         <div>
+            <div className="w-full">
+            <VideoBanner/>
+        </div>
         <div className="w-full">
             <WelcomeContainer/>
         </div>
         <div className="w-full">
             <NextConcertsComponentContainer/>
-        </div>
-        <div className="w-full">
-            <VideoBanner/>
         </div>
         <div className="w-full">
             <NewsLetterContainer/>

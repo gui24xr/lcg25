@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import NavBar from '../../../NavBar/NavBar';
 import { Bebas_Neue , Ysabeau_SC   } from 'next/font/google';
 const bebas_neue = Bebas_Neue({
   subsets: ['latin'],
@@ -43,7 +42,7 @@ const VideoBanner = () => {
 
         {/* NavBar */}
         <div className="absolute top-0 left-0 w-full z-30">
-          <NavBar />
+          {/* aca podria ir super titulo con logo y nombre /> */}
         </div>
 
         {/* Título */}
