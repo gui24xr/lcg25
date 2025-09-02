@@ -54,7 +54,7 @@ const VideoBanner = () => {
             
             <Link
               className={`${bebas_neue.className} tracking-widest text-white font-bold text-2xl md:text-md px-16 py-2 font-bold uppercase border-1 border-white p-4`}
-              href={"https://www.youtube.com/watch?v=vRcbywAlQhM"}>Ver video</Link>
+              href="/#welcome-section">Ingresar</Link>
           </div>
 
         </div>
@@ -76,3 +76,7 @@ export default VideoBanner;
           <source src={"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"} type="video/mp4" />
         </video>
 */
+
+/* <Link
+              className={`${bebas_neue.className} tracking-widest text-white font-bold text-2xl md:text-md px-16 py-2 font-bold uppercase border-1 border-white p-4`}
+              href={"https://www.youtube.com/watch?v=vRcbywAlQhM"}>Ver video</Link>*/
