@@ -1,85 +1,94 @@
-import React from 'react';
-import Image from 'next/image';
-import { NavBar } from '../../../components';
+import Image from "next/image"
 
+export default function BiographyBanner() {
+  // Datos de biografía organizados por año
+  const biographyData = [
+    {
+      year: "1982",
+      text: "Con tan solo doce años graba su primer disco. Este será el comienzo de una trayectoria artística excepcional.",
+      image: "/images/3.jpg",
+      imagePosition: "left" as const,
+    },
+    {
+      year: "1985",
+      text: "A los quince años gana su primer Grammy americano y se consagra como el primer cantante hispano más joven en recibir dicho reconocimiento.",
+      image: null,
+      imagePosition: null,
+    },
+    {
+      year: "1987",
+      text: 'Es el debut con la disquera Warner Music lanzando su quinto álbum "Soy Como Quiero Ser" de la mano del productor y compositor Juan Carlos Calderón, con el cual, comenzará una estrecha amistad.',
+      image: null,
+      imagePosition: null,
+    },
+    {
+      year: "1990",
+      text: 'Con el disco "20 Años" vende en tan solo una semana más de 600,000 copias. Seis sencillos del álbum entran simultáneamente en el TOP 100 de México. Realiza una gira por USA y América Latina con un éxito sin precedentes.',
+      image: null,
+      imagePosition: null,
+    },
+    {
+      year: "1991",
+      text: 'Es co-productor de su octavo álbum "Romance" alcanzando ventas de más de siete millones de copias internacionalmente. Se convierte en el primer artista latino en recibir un Disco de Oro en Estados Unidos.',
+      image: "/images/12.jpg",
+      imagePosition: "right" as const,
+    },
+  ]
 
-
-
-
-const BiographyBanner = () => {
   return (
-    <div className="w-full min-h-screen relative"> {/* Agregué relative aquí */}
-        {/* Imagen de fondo optimizada */}
-        <Image
-            src="/images/3.jpg"
-            alt="Background description"
-            fill
-            className="object-cover"
-            quality={75}
-            priority={true}
-        />
-         
-        {/* Overlay opcional */}
-        <div className="absolute inset-0 backdrop-saturate-100 z-10"></div>
-         
-        {/* Contenido */}
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12 min-h-screen flex flex-col justify-between">
-            {/* NavBar en la parte superior */}
-            <div className="flex justify-center"> {/* O justify-start si quieres a la izquierda */}
-                <NavBar />
-            </div>
-            
-            {/* Biografía en la parte inferior */}
-            <div className="w-full flex justify-center p-8 bg-black/70"> {/* Mantiene el texto alineado a la derecha */}
-                <div className="max-w-5xl"> {/* Limita el ancho del párrafo */}
-                    <p className="text-white text-lg font-lightleading-relaxed">
-                        Nacido en Hermosillo, Sonora, Carin León creció rodeado de música, un amor que lo llevó a iniciar su viaje musical a los 15 años, aprendiendo guitarra y desarrollando su talento en canto y composición. En 2018, su álbum debut, Desvelada con Banda y Mariachi, lo catapultó como una de las figuras más prominentes en la música regional mexicana.
-                    </p>
+    <div className="w-full bg-[#2a2a2a] min-h-screen">
+      {/* Header */}
+        <div className="w-full bg-black py-16 md:py-24 text-center border-b border-[#d4a574]/20">
+        <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] uppercase">
+          Biografía
+        </h1>
+      </div>
+      {/* Timeline de biografía */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {biographyData.map((item, index) => (
+          <div
+            key={item.year}
+            className={`flex flex-col ${
+              item.imagePosition === "left"
+                ? "lg:flex-row"
+                : item.imagePosition === "right"
+                  ? "lg:flex-row-reverse"
+                  : "lg:flex-row"
+            } gap-8 lg:gap-12 mb-20 items-start`}
+          >
+            {/* Imagen (si existe) */}
+            {item.image && (
+              <div className="w-full lg:w-1/3 relative h-80 lg:h-96 flex-shrink-0">
+                <Image
+                  src={item.image || "/placeholder.svg"}
+                  alt={`Biografía ${item.year}`}
+                  fill
+                  className="object-cover transition-all hover:grayscale duration-500"
+                  quality={90}
+                />
+              </div>
+            )}
+
+            {/* Contenido de texto */}
+            <div className={`flex-1 ${!item.image ? "lg:pl-20" : ""}`}>
+              <div className="flex items-start gap-6">
+                {/* Año */}
+                <div className="text-[#d4a574] text-5xl md:text-6xl font-serif font-light tracking-wider flex-shrink-0">
+                  {item.year}
                 </div>
+
+                {/* Texto */}
+                <div className="flex-1 pt-2">
+                  <p className="text-white/80 text-base md:text-lg leading-relaxed font-light">{item.text}</p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sección final con gradiente */}
+      <div className="w-full bg-gradient-to-b from-[#2a2a2a] to-black py-20"></div>
     </div>
   )
 }
-
-
-
-const BiographyBanner2 = () => {
-  return (
-    <div className="bg-black">
-      {/* Container principal - AÑADIR relative aquí */}
-      <div className="relative w-full h-48 min-h-screen overflow-hidden">
-        {/* Imagen de fondo */}
-        <Image
-          src={"/images/12.jpg"}
-          alt={"Fondo biografía"}
-          fill
-          className="object-cover"
-          priority
-        />
-        
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60 z-10"></div>
-        
-        {/* NavBar */}
-        <div className="absolute top-0 left-0 w-full z-30">
-          <NavBar />
-        </div>
-        
-        {/* Título */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <h1 className="text-white text-4xl md:text-6xl font-serif font-bold tracking-wider uppercase">
-            {'Sobre mi'}
-          </h1>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default BiographyBanner;
-
-
-/*
-
-*/

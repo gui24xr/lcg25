@@ -20,8 +20,9 @@ export default function NewsLetterContainer() {
                     <InstagramConnectCard/>
                     <InstagramConnectCard/>
                    </div>
+                
                 </div>
-            </div>
+            </div> 
         </div>
        
     )

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bebas_Neue, Inter, Yusei_Magic, Playfair_Display_SC } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components";
+import FooterComponent from "@/components/FooterComponent";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -51,10 +52,15 @@ export default function RootLayout({
          className={`${geistSans.variable} ${geistMono.variable} ${bebas.variable} ${inter.variable} ${yusei_magic.variable} ${playfair_display_sc.variable} antialiased`}
       >
         {/*<NavBar />*/}
+        
+      {/* NavBar */}
+   
+      {/* NavBar */}
+      <div className="absolute top-0 left-0 w-full z-30">
+        <NavBar />
+      </div>
         {children}
-        <div className="w-full min-h-96 bg-black text-white">
-           footer
-        </div>
+       <FooterComponent/>
       </body>
     </html>
   );

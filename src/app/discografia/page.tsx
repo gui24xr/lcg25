@@ -1,9 +1,9 @@
-import { DiscographyContainer } from "@/components";
+import { DiscographyContainer } from "@/components"
 
 export default function Discografia() {
-    return (
-        <div className="bg-white">
-            <DiscographyContainer/>
-        </div>
-    )
+  return (
+    <div className="bg-[#1a1a1a]">
+      <DiscographyContainer />
+    </div>
+  )
 }

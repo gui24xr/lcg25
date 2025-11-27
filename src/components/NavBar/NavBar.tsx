@@ -1,4 +1,126 @@
-// components/Navbar.jsx
+"use client"
+
+import Link from "next/link"
+import { useState } from "react"
+
+export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <nav className="w-full bg-black text-white py-6 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between">
+          {/* Logo/Brand */}
+          <Link
+            href="/"
+            className="text-2xl font-bold tracking-[0.3em] uppercase hover:text-[#d4a574] transition-colors duration-300"
+          >
+            Luis Carlos Gago 
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            
+              <Link
+              href="/discografia"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Discografia
+            </Link>
+            <Link
+              href="/conciertos"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Tour
+            </Link>
+            <Link
+              href="/galeria"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Galería
+            </Link>
+            <Link
+              href="/biografia"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Biografía
+            </Link>
+            <Link
+              href="/contacto"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Contacto
+            </Link>
+            <Link
+              href="/tienda"
+              className="text-sm font-bold tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+            >
+              Tienda
+            </Link>
+          
+            
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+            />
+            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
+            <span
+              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            />
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden mt-6 flex flex-col gap-4 border-t border-gray-800 pt-6">
+            <Link
+              href="/"
+              className="text-sm font-light tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/concerts"
+              className="text-sm font-light tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              Tour
+            </Link>
+            <Link
+              href="/gallery"
+              className="text-sm font-light tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              Galería
+            </Link>
+            <Link
+              href="/biography"
+              className="text-sm font-light tracking-widest uppercase hover:text-[#d4a574] transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              Biografía
+            </Link>
+          </div>
+        )}
+      </div>
+    </nav>
+  )
+}
+
+
+
+
+
+
+/* // components/Navbar.jsx
 "use client"
 import Link from 'next/link'
 import { useState } from 'react'
@@ -38,12 +160,6 @@ export default function Navbar() {
       href: "/galeria",
       label: "Galeria",
       pathname: "/galeria",
-      special: false
-    },
-      {
-      href: "/noticias",
-      label: "Noticias",
-      pathname: "/noticias",
       special: false
     },
     {
@@ -113,7 +229,7 @@ export default function Navbar() {
       <div className=" w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* Logo */}
+        
           <Link 
             href="/" 
               className={`${bebas_neue.className} space-x-2 text-white shadow-lg font-bold text-3xl font-semibold hover:text-gray-300 transition-colors`}
@@ -123,7 +239,7 @@ export default function Navbar() {
             <span className='text-red-500'>Gago</span>
           </Link>
             
-          {/* Desktop Menu */}
+        
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
@@ -138,7 +254,7 @@ export default function Navbar() {
             </div>
           </div>
            
-          {/* Mobile menu button */}
+        
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -155,7 +271,7 @@ export default function Navbar() {
           </div>
         </div>
          
-        {/* Mobile Menu */}
+
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black/90">
@@ -175,4 +291,4 @@ export default function Navbar() {
       </div>
     </nav>
   )
-}
+} */

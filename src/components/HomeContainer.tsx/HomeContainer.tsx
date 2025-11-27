@@ -6,9 +6,7 @@ export default function HomeContainer() {
             <div className="w-full">
             <VideoBanner/>
         </div>
-        <div className="w-full" id="welcome-section">
-            <WelcomeContainer/>
-        </div>
+       
         <div className="w-full">
             <NextConcertsComponentContainer/>
         </div>
